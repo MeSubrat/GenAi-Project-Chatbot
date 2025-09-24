@@ -1,0 +1,163 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #343541;
+    /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ececf1;
+}
+
+.chat-container {
+    width: 100%;
+    max-width: 800px;
+    height: 90vh;
+    /* max-height: 90vh; */
+    background: #343541;
+    /* Match body */
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid #565869;
+    
+}
+
+.chat-box {
+    height: 90vh;
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    background: #343541;
+    display: flex;
+    flex-direction: column;
+    scrollbar-width: none;
+}
+
+/* Messages */
+.message {
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    max-width: 75%;
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.message.user {
+    background: #007aff;
+    color: #fff;
+    align-self: flex-end;
+}
+
+.message.assistant {
+    background: #444654;
+    color: #ececf1;
+    align-self: flex-start;
+}
+
+/* Input area */
+.input-area {
+    display: flex;
+    border-top: 1px solid #565869;
+    padding: 10px;
+    background: #343541;
+}
+
+.input-area textarea {
+    flex: 1;
+    resize: none;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 8px;
+    background: #40414f;
+    color: #ececf1;
+    scrollbar-width: none;
+}
+
+.input-area textarea::placeholder {
+    color: #8e8ea0;
+}
+
+.input-area button {
+    margin-left: 10px;
+    padding: 10px 16px;
+    background: #19c37d;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.input-area button:hover {
+    background: #15a86d;
+}
+
+
+/* pulse.css
+   Simple text pulse animation inspired by Tailwind's "animate-pulse".
+   Usage: add the class "pulse-text" to any inline element (span, em, etc.)
+*/
+
+/* Keyframes: gentle scale + opacity change */
+@keyframes pulseText {
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.5;
+        transform: scale(0.99);
+    }
+}
+
+/* Default pulse (2s, smooth, infinite) */
+.pulse-text {
+    display: inline-block;
+    /* allow transform on inline text */
+    animation-name: pulseText;
+    animation-duration: 2s;
+    animation-timing-function: cubic-bezier(.4, 0, .6, 1);
+    animation-iteration-count: infinite;
+}
+
+/* Faster / slower variants if you want */
+.pulse-text-fast {
+    animation-duration: 1s;
+}
+
+.pulse-text-slow {
+    animation-duration: 3s;
+}
+
+/* Slightly subtler variant */
+.pulse-text-subtle {
+    animation-duration: 2.2s;
+    animation-timing-function: ease-in-out;
+    opacity: 0.95;
+}
+
+/* Respect user's reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+    .pulse-text,
+    .pulse-text-fast,
+    .pulse-text-slow,
+    .pulse-text-subtle {
+        animation: none;
+        transform: none;
+    }
+}
