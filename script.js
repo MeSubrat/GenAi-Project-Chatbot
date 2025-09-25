@@ -39,12 +39,12 @@ async function generate(text) {
     chatBox.appendChild(assistantMessageElement);
 }
 async function callServer(inputText) {
-    const response = await fetch(`http://localhost:3001/chat`, {
+    const response = await fetch(`https://genai-project-chatbot.onrender.com/chat`, {
         method: 'POST',
         headers: {
             'content-type': 'application/json'
         },
-        body: JSON.stringify({threadId,message: inputText })
+        body: JSON.stringify({ threadId, message: inputText })
     });
 
     if (!response.ok) {
